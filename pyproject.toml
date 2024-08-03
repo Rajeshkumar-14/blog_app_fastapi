@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "blog app"
+version = "0.1.0"
+description = "Blog App using FastAPI."
+authors = ["Rajesh Kumar <Rajeshrk233444@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.0"
+uvicorn = "^0.30.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
