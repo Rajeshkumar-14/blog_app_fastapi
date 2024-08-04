@@ -1,9 +1,21 @@
+# Package Import
 from fastapi import FastAPI
-from .schemas import Blog
-
 import uvicorn
 
+# Schemas Import
+from .schemas import Blog
+
+# Models Import
+from . import models
+
+# Database Engine Import
+from .database import engine
+
+# FastAPI Instance
 app = FastAPI()
+
+# Database Tables Creation
+models.Base.metadata.create_all(engine)
 
 
 @app.get("/")
