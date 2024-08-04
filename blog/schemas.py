@@ -3,13 +3,13 @@ from typing import Optional
 
 
 class User(BaseModel):
-    name: str
+    username: str
     email: str
     password: str
 
 
 class ShowUser(BaseModel):
-    name: str
+    username: str
     email: str
 
     class Config:
@@ -37,3 +37,17 @@ class ShowBlog(Blog):
     class Config:
         # 'orm_mode' has been renamed to 'from_attributes' in pydantic 2.x
         from_attributes = True
+
+
+class Login(BaseModel):
+    email: str
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None

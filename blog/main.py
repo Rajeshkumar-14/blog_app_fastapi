@@ -8,11 +8,12 @@ from . import models
 from .database import engine
 
 # Import Router
-from .routers import blog, user
+from .routers import blog, user, authentication
 
 # FastAPI Instance
 app = FastAPI()
 
+app.include_router(authentication.router)
 app.include_router(blog.router)
 app.include_router(user.router)
 

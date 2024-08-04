@@ -31,7 +31,7 @@ def get_user(id: int, db: Session):
 def create(request: schemas.User, db: Session):
     hashed_password = Hash.bcrypt(request.password)
     new_user = models.User(
-        name=request.name, email=request.email, password=hashed_password
+        username=request.username, email=request.email, password=hashed_password
     )
     db.add(new_user)
     db.commit()

@@ -12,16 +12,22 @@ from .. import schemas
 # Repository
 from ..repository import blog
 
+# Authentication
+from ..OAuth2 import get_current_user
+
 # Router Instance
 router = APIRouter(
     prefix="/blog",
     tags=["Blogs"],
+    dependencies=[Depends(get_current_user)],
 )
 
 
 # Get All Blogs
 @router.get("/", status_code=status.HTTP_200_OK, response_model=List[schemas.ShowBlog])
-def all_blog(db: Session = Depends(get_db)):
+def all_blog(
+    db: Session = Depends(get_db),
+):
     return blog.get_all(db)
 
 
